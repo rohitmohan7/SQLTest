@@ -26,10 +26,12 @@ int main(void)
         buffer.push_back(val);
 
         while (!cOracle->IsEOF()) {
+            val.clear();
             for (int i = 0; i < fieldCount; ++i) {
                 val += (val.length() > 0 ? "," : "");
                 val += cOracle->GetFieldValue(i);
             }
+            buffer.push_back(val);
             if (!cOracle->MoveNext()) {
                 break;
             }
